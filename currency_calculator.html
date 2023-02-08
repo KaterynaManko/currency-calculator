@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ua">
+    <head>
+        <meta charset="utf-8">
+        <title>Currency calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="contact-form">
+        <style>
+        body {
+          background-image: url('https://st.depositphotos.com/1765535/1448/i/600/depositphotos_14488765-stock-photo-polish-coins-money.jpg');
+          background-repeat: no-repeat;
+          background-size: cover
+        }
+        .contact-form{
+            max-width:250px;
+            margin:auto;
+            border-radius:5px;
+            padding:15px;
+        }
+         input[type=text], select{
+            width:100%;
+            padding:12px 20px;
+            margin:8px 0;
+            display:inline-block;
+            border:1px solid #ccc;
+            border-radius:4px;
+            box-sizing:border-box;
+            background:lightyellow;
+            color: blue;
+         }
+        </style>
+        <form action="/currency" method="post">
+            <label style="font-family: Times New Roman; font-size: 26px;" for="currency_code"><b>Код валюти: </b></label>
+            <select id="currency_code" name="code">
+                <option value="currency_code">Вибрати</option>
+                {% for item in items %}
+                 <option value={{item['code']}}>{{item['code']}}</option>
+                {% endfor %}
+            </select>
+            <p>    
+            <label style="font-family: Times New Roman; font-size: 26px;" for="amount"><b>Кількість валюти:</b> </label>
+            <input type="text" id="name" name="amount"><br></p>
+            <input style="font-family: Times New Roman; font-size: 16px;"type ="submit" id="button" value="Перерахувати">
+            <p> 
+            <label style="font-family: Times New Roman; font-size: 26px;" for="cost"><b>Вартість в  (PLN): </b></label>
+            <input type="text" id="name" name="cost" value={{cost}}><br></p>
+        </form>
+    </div>
+    </body>
+</html>
